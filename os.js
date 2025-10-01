@@ -83,22 +83,38 @@
 
 // Node.js’da http – bu web server va http mijoz (client) yaratish uchun ishlatiladigan ichki modul.
 // Ya’ni, siz Node.js yordamida o‘z web serveringizni yaratishingiz mumkin – hech qanday qo‘shimcha kutubxona o‘rnatmasdan.
+const http = require('http')
 
-// const http = require('http')
+const server = http.createServer((req, res) => {
+  if (req.method === 'GET') {
+    res.writeHead(200, { 'Content-Type': 'text/html' })
+    res.end(`
+      <h2>Send name</h2>
+      <form method="post" action="/">
+        <input name="name" type="text" placeholder="Enter your name" required />
+        <button type="submit">Send name</button>
+      </form>
+    `)
+  } else if (req.method === 'POST') {
+    const chunks = []
 
-// const server = http.createServer((request, response ) => {
+    req.on('data', (data) => {
+      chunks.push(data)
+    })
 
-//     console.log(request.url)
+    req.on('end', () => {
+      const body = Buffer.concat(chunks).toString()
+      res.writeHead(200, {'content-type': 'text/html; charset=utf-8'})
+      const email = body.split('=')[1]
+      res.writeHead(200, { 'Content-Type': 'text/html' })
+      res.end(`<h3>Email successfully added: ${decodeURIComponent(email)}</h3>`)
+    })
+  }
+})
 
-//     response.write('<h1>hello word</h1>')
-//     response.end()
+server.listen(3000, () => {
+  console.log('Server has started on port: 3000')
+})
 
-
-// })
-
-// server.listen(3000 , () => {
-//     console.log('Server has started on port: 3000')
-
-// })
 
 
