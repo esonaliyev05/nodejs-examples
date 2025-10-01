@@ -77,3 +77,26 @@
 // logger.log(6 , 11)
 // logger.log(5 , 11)
 
+
+
+// http moduli nima?
+
+// Node.js’da http – bu web server va http mijoz (client) yaratish uchun ishlatiladigan ichki modul.
+// Ya’ni, siz Node.js yordamida o‘z web serveringizni yaratishingiz mumkin – hech qanday qo‘shimcha kutubxona o‘rnatmasdan.
+
+// const http = require('http')
+
+// const server = http.createServer((request, response ) => {
+
+//     console.log(request.url)
+
+//     response.write('<h1>hello word</h1>')
+//     response.end()
+
+
+// })
+
+// server.listen(3000 , () => {
+//     console.log('Server has started on port: 3000')
+
+// })
