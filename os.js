@@ -34,3 +34,46 @@
 // 🔄 Ko‘p dasturlarni bir vaqtning o‘zida ishlatish
 
 
+
+
+// 🔔 events moduli nima?
+
+// events – bu Node.js’ning ichki moduli bo‘lib, event-driven (hodisaga asoslangan) dasturlash imkonini beradi.
+// Ya’ni, siz hodisani yaratib, unga listener (tinglovchi) qo‘shasiz va hodisa yuz bersa, tinglovchi ishga tushadi.
+
+// Node.js’da ko‘plab narsalar (masalan, http server) ichida events dan foydalanadi.
+
+// 📝 Asosiy ishlatish
+// const EventEmitter = require('events');
+
+// // Yangi EventEmitter obyekt yaratamiz
+// const emitter = new EventEmitter();
+
+// // Hodisa tinglovchi qo‘shamiz
+// emitter.on('salom', (name) => {
+//   console.log(`Salom, ${name}!`);
+// });
+
+// // Hodisani ishga tushiramiz
+// emitter.emit('salom', 'Ali');
+
+
+// const Events = require("events")
+
+// class Logger  extends Events {
+//     log(a , b) {
+//     this.emit('calculate' , a + b)
+//     }
+// }
+
+// const logger = new Logger()
+
+// logger.on('calculate', data => {
+//     console.log(data)
+// })
+
+// logger.log(8 , 11)
+// logger.log(7 , 11)
+// logger.log(6 , 11)
+// logger.log(5 , 11)
+
